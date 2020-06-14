@@ -46,6 +46,7 @@ public class BaseClass {
 
 		}
 		driver.manage().window().maximize();
+		driver.get(System.getProperty("url"));
 	}
 	
 	@AfterMethod
