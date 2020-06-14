@@ -15,11 +15,13 @@ public class ListenerClass extends ExtentManager implements ITestListener {
 	public void onTestStart(ITestResult result) {
 		test = extent.createTest(result.getName());
 	}
+
 	public void onTestSuccess(ITestResult result) {
 		if (result.getStatus() == ITestResult.SUCCESS) {
 			test.log(Status.PASS, "Pass Test case is: " + result.getName());
 		}
 	}
+
 	public void onTestFailure(ITestResult result) {
 		if (result.getStatus() == ITestResult.FAILURE) {
 			test.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + " - Test Case Failed", ExtentColor.RED));
@@ -27,12 +29,12 @@ public class ListenerClass extends ExtentManager implements ITestListener {
 					MarkupHelper.createLabel(result.getThrowable() + " - Test Case Failed", ExtentColor.RED));
 			try {
 				String pathString = BaseClass.screenShot(BaseClass.driver, result.getName());
-				test.addScreenCaptureFromPath(pathString);
+				test.addScreenCaptureFromPath("."+pathString);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 		}
 	}
 
@@ -41,13 +43,16 @@ public class ListenerClass extends ExtentManager implements ITestListener {
 			test.log(Status.SKIP, "Skipped Test case is: " + result.getName());
 		}
 	}
+
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 		// TODO Auto-generated method stub
 	}
+
 	public void onStart(ITestContext context) {
 		// TODO Auto-generated method stub
 
 	}
+
 	public void onFinish(ITestContext context) {
 		// TODO Auto-generated method stub
 	}

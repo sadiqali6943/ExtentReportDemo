@@ -63,7 +63,6 @@ public class BaseClass {
 		try {
 			FileUtils.copyFile(source, finalDestination);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.getMessage();
 		}
 		return destination;
