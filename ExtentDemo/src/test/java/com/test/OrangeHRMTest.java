@@ -21,7 +21,7 @@ public class OrangeHRMTest extends BaseClass {
 		driver.findElement(By.id("txtPassword")).sendKeys("admin123");
 		driver.findElement(By.id("btnLogin")).click();
         String actualTitle=driver.getTitle();
-        String expectedTitle="OrangeHRM1";
+        String expectedTitle="OrangeHRM";
         Assert.assertEquals(actualTitle, expectedTitle);
 	}
 	@Test
@@ -33,6 +33,6 @@ public class OrangeHRMTest extends BaseClass {
 		ExtentManager.test.createNode("Validation3");
 		Assert.assertTrue(true);
 		ExtentManager.test.createNode("Validation4");
-		Assert.assertTrue(true);
+		Assert.assertTrue(false);
 	}
 }
