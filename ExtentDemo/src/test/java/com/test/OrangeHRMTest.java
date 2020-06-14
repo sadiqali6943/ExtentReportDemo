@@ -10,8 +10,8 @@ import com.extentManager.ExtentManager;
 public class OrangeHRMTest extends BaseClass {
 	
 	@Test
-	public void loginPageTest() {
-		
+	public void loginPageTest() throws InterruptedException {
+		Thread.sleep(2000);
 		WebElement imgElement=driver.findElement(By.xpath("//*[@id=\"divLogo\"]/img"));
 		Assert.assertTrue(imgElement.isDisplayed());
 	}
