@@ -12,7 +12,7 @@ public class OrangeHRMTest extends BaseClass {
 	@Test
 	public void loginPageTest() throws InterruptedException {
 		Thread.sleep(2000);
-		WebElement imgElement=driver.findElement(By.xpath("//*[@id=\"divLogo\"]/img"));
+		WebElement imgElement=driver.findElement(By.xpath("//*[@id=\"divLogo\"]/img1"));
 		Assert.assertTrue(imgElement.isDisplayed());
 	}
 	@Test
@@ -33,6 +33,6 @@ public class OrangeHRMTest extends BaseClass {
 		ExtentManager.test.createNode("Validation3");
 		Assert.assertTrue(true);
 		ExtentManager.test.createNode("Validation4");
-		Assert.assertTrue(false);
+		Assert.assertTrue(true);
 	}
 }
