@@ -61,7 +61,8 @@ public class BaseClass {
 		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 		TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
 		File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
-		String destination = System.getProperty("user.dir") + "\\ScreenShot\\" + filename + "_" + dateName + ".png";
+		//String destination = System.getProperty("user.dir") + "\\ScreenShot\\" + filename + "_" + dateName + ".png";
+		String destination = System.getProperty("user.dir") + "\\ScreenShot\\ScreenShot.png";
 		// String destination =
 		// System.getProperty("user.dir")+"/test-output/ExtentReport/"+filename+"_"+dateName+".png";
 		try {
