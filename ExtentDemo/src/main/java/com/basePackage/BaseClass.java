@@ -72,7 +72,7 @@ public class BaseClass {
 			e.getMessage();
 		}
 		
-		String newImageString="C:/Users/Hitendra/.jenkins/workspace/ExtentDemo/ExtentDemo/ScreenShot/"+filename+"_"+dateName+".png";
+		String newImageString="file:///C:/Users/Hitendra/.jenkins/workspace/ExtentDemo/ExtentDemo/ScreenShot/"+filename+"_"+dateName+".png";
 		
 		return newImageString;
 	}
