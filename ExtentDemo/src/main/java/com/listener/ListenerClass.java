@@ -38,6 +38,7 @@ public class ListenerClass extends ExtentManager implements ITestListener {
 				test.fail(result.getThrowable().getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(imgPath).build());
 				test.addScreencastFromPath(imgPath);
 				test.addScreenCaptureFromPath(imgPath);
+				System.out.println("PATH IS ++++++++++++++++++++++++++++"+imgPath);
 				
 				/*
 				 * ExtentClass.extentTest.log(LogStatus.FAIL,
