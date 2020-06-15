@@ -54,11 +54,6 @@ public class BaseClass {
 	
 	@AfterMethod
 	public void tearDown(ITestResult result) throws IOException {
-		
-		if (result.getStatus() == ITestResult.FAILURE) {
-			String pathString = BaseClass.screenShot(BaseClass.driver, result.getName());
-			ExtentManager.test.addScreenCaptureFromPath(pathString);
-		}
 		driver.close();
 	} 
 	
