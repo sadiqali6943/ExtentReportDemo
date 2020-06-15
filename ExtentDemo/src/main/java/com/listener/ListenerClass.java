@@ -4,6 +4,8 @@ import java.io.IOException;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+
+import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
@@ -30,7 +32,11 @@ public class ListenerClass extends ExtentManager implements ITestListener {
 				test.log(Status.FAIL,
 						MarkupHelper.createLabel(result.getThrowable() + " - Test Case Failed", ExtentColor.RED));
 				String imgPath = BaseClass.screenShot(BaseClass.driver, result.getName());
-				test.addScreenCaptureFromPath(imgPath);
+				
+				//added this
+				test.fail(result.getThrowable().getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(imgPath).build());
+				
+				//test.addScreenCaptureFromPath(imgPath);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
