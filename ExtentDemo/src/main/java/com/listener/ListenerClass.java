@@ -36,12 +36,11 @@ public class ListenerClass extends ExtentManager implements ITestListener {
 				//added this
 				test.fail(result.getThrowable().getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(imgPath).build());
 				
-				test.addScreenCaptureFromPath(imgPath);
+				test.addScreenCaptureFromPath("http://localhost:8080/job/ExtentDemo/ws/ExtentDemo/ScreenShot/loginPageTest_20200615055542.png");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
 		}
 	}
 
