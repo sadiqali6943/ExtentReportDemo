@@ -39,6 +39,7 @@ public class ListenerClass extends ExtentManager implements ITestListener {
 			
 				//test.fail(result.getThrowable().getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(imgPath).build());
 				test.fail("This is failed test", MediaEntityBuilder.createScreenCaptureFromPath(imgPath).build());
+				
 				test.addScreencastFromPath(imgPath);
 				test.addScreenCaptureFromPath(imgPath);
 				//test.addScreenCaptureFromPath("C:/Users/Hitendra/.jenkins/workspace/ExtentDemo/ExtentDemo/ScreenShot/ScreenShot.png");
