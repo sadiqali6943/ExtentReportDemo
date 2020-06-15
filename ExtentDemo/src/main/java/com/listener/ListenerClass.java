@@ -42,6 +42,7 @@ public class ListenerClass extends ExtentManager implements ITestListener {
 				
 				test.addScreencastFromPath(imgPath);
 				test.addScreenCaptureFromPath(imgPath);
+				test.addScreenCaptureFromPath("file:///C:/Users/Hitendra/.jenkins/workspace/ExtentDemo/ExtentDemo/ScreenShot/loginPageTest_20200615111209.png");
 				//test.addScreenCaptureFromPath("C:/Users/Hitendra/.jenkins/workspace/ExtentDemo/ExtentDemo/ScreenShot/ScreenShot.png");
 				//test.addScreenCaptureFromPath("http://localhost:8080/job/ExtentDemo/ws/ExtentDemo/ScreenShot/ScreenShot.png");
 				System.out.println("PATH IS ++++++++++++++++++++++++++++"+imgPath);
