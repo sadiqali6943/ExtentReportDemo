@@ -29,14 +29,15 @@ public class BaseClass {
 	public void BeforeSuite() {
 		ExtentManager.setExtent();
 	}
-	
+
 	@AfterSuite
 	public void AfterSuite() {
 		ExtentManager.endReport();
 	}
-	
+
 	@BeforeMethod
 	public void setup() {
+
 		if (System.getProperty("browser").equalsIgnoreCase("Chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
@@ -46,34 +47,33 @@ public class BaseClass {
 		} else if (System.getProperty("browser").equalsIgnoreCase("IE")) {
 			WebDriverManager.iedriver().setup();
 			driver = new InternetExplorerDriver();
-
 		}
 		driver.manage().window().maximize();
 		driver.get(System.getProperty("url"));
 	}
-	
+
 	@AfterMethod
 	public void tearDown(ITestResult result) throws IOException {
 		driver.close();
-	} 
-	
-	public static String screenShot(WebDriver driver,String filename) {
+	}
+
+	public static String screenShot(WebDriver driver, String filename) {
 		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 		TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
 		File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
-		String destination = System.getProperty("user.dir")+"\\ScreenShot\\"+filename+"_"+dateName+".png";
-		//String destination = System.getProperty("user.dir")+"/test-output/ExtentReport/"+filename+"_"+dateName+".png";
-		File finalDestination= new File(destination);
+		String destination = System.getProperty("user.dir") + "\\ScreenShot\\" + filename + "_" + dateName + ".png";
+		// String destination =
+		// System.getProperty("user.dir")+"/test-output/ExtentReport/"+filename+"_"+dateName+".png";
 		try {
-			FileUtils.copyFile(source, finalDestination);
+			FileUtils.copyFile(source, new File(destination));
 		} catch (Exception e) {
 			e.getMessage();
 		}
 		return destination;
 	}
-	
-	public static String getCurrentTime() {  
-	    String currentDate = new SimpleDateFormat("yyyy-MM-dd-hhmmss").format(new Date());  
-	    return currentDate;  
-	}  
+
+	public static String getCurrentTime() {
+		String currentDate = new SimpleDateFormat("yyyy-MM-dd-hhmmss").format(new Date());
+		return currentDate;
+	}
 }

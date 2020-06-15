@@ -29,8 +29,8 @@ public class ListenerClass extends ExtentManager implements ITestListener {
 						MarkupHelper.createLabel(result.getName() + " - Test Case Failed", ExtentColor.RED));
 				test.log(Status.FAIL,
 						MarkupHelper.createLabel(result.getThrowable() + " - Test Case Failed", ExtentColor.RED));
-				String pathString = BaseClass.screenShot(BaseClass.driver, result.getName());
-				test.addScreenCaptureFromPath(pathString);
+				String imgPath = BaseClass.screenShot(BaseClass.driver, result.getName());
+				test.addScreenCaptureFromPath(imgPath);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
