@@ -12,6 +12,7 @@ import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.basePackage.BaseClass;
 import com.extentManager.ExtentManager;
 
+
 public class ListenerClass extends ExtentManager implements ITestListener {
 
 	public void onTestStart(ITestResult result) {
@@ -35,8 +36,16 @@ public class ListenerClass extends ExtentManager implements ITestListener {
 				
 				//added this
 				test.fail(result.getThrowable().getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(imgPath).build());
-				
+				test.addScreencastFromPath(imgPath);
 				test.addScreenCaptureFromPath(imgPath);
+				
+				/*
+				 * ExtentClass.extentTest.log(LogStatus.FAIL,
+				 * ExtentClass.extentTest.addScreencast(screenshotPath));
+				 * ExtentClass.extentTest.log(LogStatus.FAIL,
+				 * ExtentClass.extentTest.addScreenCapture(screenshotPath));
+				 */
+				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
