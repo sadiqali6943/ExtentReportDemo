@@ -11,10 +11,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
 import com.extentManager.ExtentManager;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -50,7 +53,12 @@ public class BaseClass {
 	}
 	
 	@AfterMethod
-	public void tearDown() throws IOException {
+	public void tearDown(ITestResult result) throws IOException {
+		
+		if (result.getStatus() == ITestResult.FAILURE) {
+			String pathString = BaseClass.screenShot(BaseClass.driver, result.getName());
+			ExtentManager.test.addScreenCaptureFromPath(pathString);
+		}
 		driver.close();
 	} 
 	
@@ -58,8 +66,8 @@ public class BaseClass {
 		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 		TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
 		File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
-		//String destination = System.getProperty("user.dir")+"\\ScreenShot\\"+filename+"_"+dateName+".png";
-		String destination = System.getProperty("user.dir")+"/test-output/ExtentReport/"+filename+"_"+dateName+".png";
+		String destination = System.getProperty("user.dir")+"\\ScreenShot\\"+filename+"_"+dateName+".png";
+		//String destination = System.getProperty("user.dir")+"/test-output/ExtentReport/"+filename+"_"+dateName+".png";
 		File finalDestination= new File(destination);
 		try {
 			FileUtils.copyFile(source, finalDestination);
