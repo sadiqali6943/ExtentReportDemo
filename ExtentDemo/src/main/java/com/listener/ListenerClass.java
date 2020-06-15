@@ -1,6 +1,9 @@
 package com.listener;
 
+import java.io.File;
 import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -35,10 +38,13 @@ public class ListenerClass extends ExtentManager implements ITestListener {
 				String imgPath = BaseClass.screenShot(BaseClass.driver, result.getName());
 				
 				//added this
+				String destination = "http://localhost:8080/job/ExtentDemo/ws/ExtentDemo/ScreenShot/ScreenShot.png";
+				FileUtils.copyFile(new File(imgPath), new File(destination));
+				
 				test.fail(result.getThrowable().getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(imgPath).build());
-				test.addScreencastFromPath(imgPath);
-				test.addScreenCaptureFromPath("C:/Users/Hitendra/.jenkins/workspace/ExtentDemo/ExtentDemo/ScreenShot/ScreenShot.png");
-				test.addScreenCaptureFromPath("http://localhost:8080/job/ExtentDemo/ws/ExtentDemo/ScreenShot/ScreenShot.png");
+				test.addScreencastFromPath(destination);
+				//test.addScreenCaptureFromPath("C:/Users/Hitendra/.jenkins/workspace/ExtentDemo/ExtentDemo/ScreenShot/ScreenShot.png");
+				//test.addScreenCaptureFromPath("http://localhost:8080/job/ExtentDemo/ws/ExtentDemo/ScreenShot/ScreenShot.png");
 				System.out.println("PATH IS ++++++++++++++++++++++++++++"+imgPath);
 				
 				/*
