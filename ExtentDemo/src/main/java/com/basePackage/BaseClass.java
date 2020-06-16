@@ -62,18 +62,15 @@ public class BaseClass {
 		TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
 		File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
 		String destination = System.getProperty("user.dir") + "\\ScreenShot\\" + filename + "_" + dateName + ".png";
-		//String destination1 = "http://localhost:8080/job/ExtentDemo/ws/ExtentDemo/ScreenShot/"+filename+"_" + dateName +".png";
-		//String destination = System.getProperty("user.dir")+"\\ScreenShot\\ScreenShot.png";
-		// String destination =
-		// System.getProperty("user.dir")+"/test-output/ExtentReport/"+filename+"_"+dateName+".png";
+		
 		try {
 			FileUtils.copyFile(source, new File(destination));
 		} catch (Exception e) {
 			e.getMessage();
 		}
 		
+		//This new path for jenkins
 		String newImageString="http://localhost:8080/job/ExtentDemo/ws/ExtentDemo/ScreenShot/"+filename+"_"+dateName+".png";
-		
 		return newImageString;
 	}
 
