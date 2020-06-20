@@ -70,7 +70,7 @@ public class BaseClass {
 		}
 		
 		//This new path for jenkins
-		String newImageString="http://localhost:8080/job/ExtentDemo/ws/ExtentDemo/ScreenShot/"+filename+"_"+dateName+".png";
+		String newImageString="http://localhost:8081/job/ExtentDemo/ws/ExtentDemo/ScreenShot/"+filename+"_"+dateName+".png";
 		return newImageString;
 	}
 

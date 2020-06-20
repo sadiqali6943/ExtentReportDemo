@@ -19,11 +19,10 @@
         <!-- report name - displayed at top-nav -->
         <reportName>OrangeHRMProject Report
          <![CDATA[
-                <img src='http://localhost:8080/job/ExtentDemo/ws/ExtentDemo/Logo/ATI.png'/>
+                <img src='http://localhost:8081/job/ExtentDemo/ws/ExtentDemo/Logo/ATI.png'/>
             ]]>
         </reportName>
-        
-        
+       
         <!-- location of charts in the test view -->
         <!-- top, bottom -->
         <testViewChartLocation>bottom</testViewChartLocation>
