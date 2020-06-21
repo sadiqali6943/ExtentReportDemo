@@ -62,7 +62,7 @@ public class BaseClass {
 		// This new path for jenkins
 		String newImageString = "http://localhost:8082/job/Demo4/ws/ExtentDemo/ScreenShot/" + filename + "_"
 				+ dateName + ".png";
-		return destination;
+		return newImageString;
 	}
 
 	public static String getCurrentTime() {
