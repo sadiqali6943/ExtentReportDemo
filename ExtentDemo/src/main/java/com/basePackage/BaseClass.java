@@ -37,19 +37,10 @@ public class BaseClass {
 
 	@BeforeMethod
 	public void setup() {
-
-		if (System.getProperty("browser").equalsIgnoreCase("Chrome")) {
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
-		} else if (System.getProperty("browser").equalsIgnoreCase("Firefox")) {
-			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
-		} else if (System.getProperty("browser").equalsIgnoreCase("IE")) {
-			WebDriverManager.iedriver().setup();
-			driver = new InternetExplorerDriver();
-		}
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get(System.getProperty("url"));
+		driver.get("https://opensource-demo.orangehrmlive.com/index.php/");
 	}
 
 	@AfterMethod
@@ -62,15 +53,16 @@ public class BaseClass {
 		TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
 		File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
 		String destination = System.getProperty("user.dir") + "\\ScreenShot\\" + filename + "_" + dateName + ".png";
-		
+
 		try {
 			FileUtils.copyFile(source, new File(destination));
 		} catch (Exception e) {
 			e.getMessage();
 		}
-		
-		//This new path for jenkins
-		String newImageString="http://localhost:8081/job/ExtentDemo/ws/ExtentDemo/ScreenShot/"+filename+"_"+dateName+".png";
+
+		// This new path for jenkins
+		String newImageString = "http://localhost:8081/job/ExtentDemo/ws/ExtentDemo/ScreenShot/" + filename + "_"
+				+ dateName + ".png";
 		return newImageString;
 	}
 
