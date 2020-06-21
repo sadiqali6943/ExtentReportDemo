@@ -59,11 +59,10 @@ public class BaseClass {
 		} catch (Exception e) {
 			e.getMessage();
 		}
-
 		// This new path for jenkins
-		String newImageString = "http://localhost:8081/job/ExtentDemo/ws/ExtentDemo/ScreenShot/" + filename + "_"
+		String newImageString = "" + filename + "_"
 				+ dateName + ".png";
-		return newImageString;
+		return destination;
 	}
 
 	public static String getCurrentTime() {
