@@ -41,9 +41,20 @@ public class BaseClass {
 		WebDriverManager.chromedriver().setup();
 		
 		ChromeOptions chromeOptions= new ChromeOptions();
-		chromeOptions.addArguments("headless");
-		chromeOptions.addArguments("window-size=1200x400");
+		
+		 chromeOptions.addArguments("disable-infobars");
+	     chromeOptions.addArguments("--incognito");
+	     chromeOptions.addArguments("--disable-gpu");
+	     chromeOptions.addArguments("--no-sandbox");
+	     chromeOptions.addArguments("--allow-insecure-localhost");
+	     chromeOptions.addArguments("--headless");
+	     chromeOptions.addArguments("--window-size=1980,1080");
+		
+		//chromeOptions.addArguments("headless");
+		//chromeOptions.addArguments("window-size=1200x400");
 	    driver = new ChromeDriver(chromeOptions);
+	   
+	   
 	    
 		driver.manage().window().maximize();
 		driver.get("https://opensource-demo.orangehrmlive.com/index.php/");
