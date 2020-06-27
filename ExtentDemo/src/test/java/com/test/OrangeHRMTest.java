@@ -9,13 +9,13 @@ import com.extentManager.ExtentManager;
 
 public class OrangeHRMTest extends BaseClass {
 	
-	//@Test
+	@Test
 	public void loginPageTest() throws InterruptedException {
 		Thread.sleep(2000);
 		WebElement imgElement=driver.findElement(By.xpath("//*[@id=\"divLogo\"]/img1"));
 		Assert.assertTrue(imgElement.isDisplayed());
 	}
-	//@Test
+	@Test
 	public void loginTest() throws InterruptedException {
 		driver.findElement(By.id("txtUsername")).sendKeys("admin");
 		driver.findElement(By.id("txtPassword")).sendKeys("admin123");
