@@ -9,6 +9,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.ITestResult;
@@ -38,7 +39,12 @@ public class BaseClass {
 	@BeforeMethod
 	public void setup() {
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
+		
+		ChromeOptions chromeOptions= new ChromeOptions();
+		chromeOptions.addArguments("headless");
+		chromeOptions.addArguments("window-size=1200x400");
+	    driver = new ChromeDriver(chromeOptions);
+	    
 		driver.manage().window().maximize();
 		driver.get("https://opensource-demo.orangehrmlive.com/index.php/");
 	}
