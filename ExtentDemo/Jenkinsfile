@@ -14,7 +14,7 @@ pipeline{
             steps{
                 checkout scm
                 script {
-                    sh (/ mvn clean install -DxmlFiles=$XML -Dbrowser=$Browser -Durl=$URL/)
+                    sh (/mvn clean test/)
                 }
 
                 step ([$class : 'Publisher', reportFilePattern : '**/testng-results.xml'])
